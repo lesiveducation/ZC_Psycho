@@ -258,8 +258,12 @@
 
   /* ---------- Footer ---------- */
   footer { background: var(--bg-deep); color: rgba(234,243,240,0.7); padding: 40px 0; font-size: 14px; }
-  .foot { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-  footer b { color: #fff; font-weight: 600; }
+  .foot { display: grid; grid-template-columns: 1.3fr 0.7fr 1fr; gap: 36px; }
+  .foot-block b { color: #fff; font-weight: 600; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .foot-links { list-style: none; margin-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+  .foot-links a { color: rgba(234,243,240,0.7); font-size: 14px; transition: color .2s; }
+  .foot-links a:hover { color: #7fc4ab; }
+  @media (max-width: 760px) { .foot { grid-template-columns: 1fr; gap: 28px; } }
   footer a { color: #7fc4ab; text-decoration: none; }
   .disclaimer { margin-top: 26px; font-size: 12.5px; color: rgba(234,243,240,0.45); line-height: 1.6; max-width: 900px; }
 
@@ -494,10 +498,28 @@
 
 <!-- Footer -->
 <footer>
-  <div class="container">
-    <div class="foot">
-      <div><b>Психолог · «Ясность»</b> — структурная психотерапия для занятых людей</div>
-      <div><a href="mailto:hello@example.com">hello@example.com</a> · по предварительной записи</div>
+  <div class="container foot">
+      <div class="foot-block foot-brand">
+        <a href="#" class="logo" style="font-size:20px">Психолог <span>· «Ясность»</span></a>
+        <p style="color:rgba(234,243,240,0.6); margin-top:10px; font-size:14px;">Структурная психотерапия для занятых людей</p>
+      </div>
+      <div class="foot-block">
+        <b>Разделы</b>
+        <ul class="foot-links">
+          <li><a href="#pains">С чем работаю</a></li>
+          <li><a href="#creds">Регалии</a></li>
+          <li><a href="#cases">Кейсы</a></li>
+          <li><a href="#offer">Диагностика</a></li>
+          <li><a href="#cta">Консультация</a></li>
+        </ul>
+      </div>
+      <div class="foot-block">
+        <b>Контакты</b>
+        <p style="font-size:14px; margin-top:8px;">Москва, ул. Пятницкая, 25с1, офис 412<br>
+        <a href="mailto:hello@example.com">hello@example.com</a><br>
+        <a href="tel:+74950000000">+7 (495) 000-00-00</a><br>
+        <span style="color:rgba(234,243,240,0.5); font-size:13px;">Приём онлайн и очно · по предварительной записи</span></p>
+      </div>
     </div>
     <p class="disclaimer">Информация на этой странице не заменяет медицинскую помощь и не является диагнозом. Психологическое консультирование не лечит психические расстройства. В случае острых состояний обратитесь к врачу-психиатру. Индивидуальные результаты могут отличаться и зависят от запроса, включенности и регулярности работы.</p>
   </div>
