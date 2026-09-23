@@ -271,7 +271,9 @@
     padding: 24px;
   }
   .modal.open { display: flex; }
-  .modal-card { background: var(--paper); border-radius: 24px; max-width: 480px; width: 100%; padding: 40px; position: relative; animation: rise .3s ease; }
+  .modal-card { background: var(--paper); border-radius: 24px; max-width: 700px; width: 100%; padding: 36px; position: relative; animation: rise .3s ease; }
+  .modal-card .ya-form-wrap { width: 100%; min-height: 420px; }
+  .modal-card iframe { width: 100% !important; }
   @keyframes rise { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
   .modal-card h3 { font-size: 24px; margin-bottom: 10px; }
   .modal-card p { color: var(--ink-soft); font-size: 15px; margin-bottom: 24px; }
@@ -507,23 +509,10 @@
     <button class="modal-close" onclick="closeModal()" aria-label="Закрыть">&times;</button>
     <h3>Обсудить мой запрос</h3>
     <p>Оставьте контакт — я напишу в ближайшее время, мягко введу в курс дела и отвечу на вопросы.</p>
-    <form id="leadForm">
-      <div class="field">
-        <label for="name">Как к вам обращаться</label>
-        <input type="text" id="name" name="name" placeholder="Имя" required>
-      </div>
-      <div class="field">
-        <label for="contact">Телефон или Telegram / WhatsApp</label>
-        <input type="text" id="contact" name="contact" placeholder="+7 ___, @username" required>
-      </div>
-      <div class="field">
-        <label for="msg">Коротко запрос (необязательно)</label>
-        <textarea id="msg" name="msg" rows="3" placeholder="Что происходит: усталость, тревога, саботаж…"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary" style="width:100%">Отправить запрос</button>
-      <p class="privacy">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных. Конфиденциальность гарантируется.</p>
-      <p class="form-success" id="formSuccess">✓ Спасибо! Я свяжусь с вами в ближайшее время.</p>
-    </form>
+    <div class="ya-form-wrap">
+      <script src="https://forms.yandex.ru/_static/embed.js"></script>
+      <iframe src="https://forms.yandex.ru/u/6ab365bbf47e73fd579bda75?iframe=1" frameborder="0" name="ya-form-6ab365bbf47e73fd579bda75" width="650"></iframe>
+    </div>
   </div>
 </div>
 
@@ -532,13 +521,6 @@
   function closeModal() { document.getElementById('modal').classList.remove('open'); }
   document.getElementById('modal').addEventListener('click', function (e) {
     if (e.target === this) closeModal();
-  });
-  document.getElementById('leadForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    document.getElementById('formSuccess').style.display = 'block';
-    this.querySelector('#name').value = '';
-    this.querySelector('#contact').value = '';
-    this.querySelector('#msg').value = '';
   });
 </script>
 
