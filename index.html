@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Психологическая поддержка для занятых людей — от хаоса к ясным решениям</title>
+<meta name="description" content="Структурный подход к психике без воды и эзотерики. Находим корень проблемы и даем рабочие инструменты, чтобы вы вернули себе энергию, фокус и контроль над жизнью за 5–10 сессий.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1d2a29;
+    --ink-soft: #4a5a58;
+    --bg: #f7f5f0;
+    --bg-deep: #12332f;
+    --paper: #ffffff;
+    --accent: #1f6f5c;
+    --accent-deep: #15523f;
+    --accent-soft: #e5f0ec;
+    --line: #e3e0d6;
+    --radius: 16px;
+    --shadow: 0 10px 40px rgba(18, 51, 47, 0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .serif { font-family: 'Playfair Display', Georgia, serif; }
+
+  .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+
+  section { padding: 88px 0; }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--accent); }
+
+  .section-title { font-size: clamp(28px, 4.2vw, 42px); line-height: 1.2; font-weight: 600; margin-bottom: 18px; }
+  .section-sub { color: var(--ink-soft); font-size: clamp(16px, 1.8vw, 19px); max-width: 720px; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 17px 34px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 12px 30px rgba(31, 111, 92, 0.30);
+  }
+  .btn-primary:hover { background: var(--accent-deep); transform: translateY(-2px); box-shadow: 0 16px 36px rgba(31, 111, 92, 0.36); }
+  .btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+  /* ---------- Header ---------- */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(247, 245, 240, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .logo { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; color: var(--ink); text-decoration: none; }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 34px; list-style: none; }
+  .nav-links a { color: var(--ink-soft); text-decoration: none; font-size: 15px; font-weight: 500; transition: color .2s; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-cta { padding: 11px 22px; font-size: 14px; }
+  @media (max-width: 820px) {
+    .nav-links { display: none; }
+    section { padding: 64px 0; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    padding: 110px 0 120px;
+    background:
+      radial-gradient(900px 500px at 90% -10%, rgba(31, 111, 92, 0.14), transparent 60%),
+      radial-gradient(700px 500px at -10% 110%, rgba(31, 111, 92, 0.10), transparent 60%),
+      var(--bg);
+    overflow: hidden;
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 60px; align-items: center; }
+  .hero h1 { font-size: clamp(34px, 5vw, 56px); line-height: 1.15; font-weight: 600; margin-bottom: 26px; }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+  .hero-lead { font-size: clamp(17px, 2vw, 20px); color: var(--ink-soft); margin-bottom: 16px; }
+  .hero-desc { color: var(--ink-soft); font-size: 17px; max-width: 540px; margin-bottom: 40px; }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+  .hero-note { margin-top: 18px; font-size: 14px; color: var(--ink-soft); }
+  .hero-note strong { color: var(--accent); }
+
+  .hero-card {
+    background: var(--bg-deep);
+    color: #eaf3f0;
+    border-radius: 24px;
+    padding: 40px 36px;
+    box-shadow: 0 30px 60px rgba(18, 51, 47, 0.30);
+    position: relative;
+  }
+  .hero-card::after {
+    content: "“";
+    position: absolute; top: 8px; right: 24px;
+    font-family: 'Playfair Display', serif;
+    font-size: 140px; line-height: 1; color: rgba(255,255,255,0.08);
+  }
+  .hero-card .quote { font-family: 'Playfair Display', serif; font-size: 19px; font-style: italic; line-height: 1.6; position: relative; z-index: 1; }
+  .hero-card .quote strong { color: #fff; font-style: normal; }
+  .hero-card .meta { margin-top: 20px; font-size: 14px; color: rgba(234, 243, 240, 0.7); }
+  .hero-stats { display: flex; justify-content: space-between; margin-top: 44px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.12); text-align: center; }
+  .hero-stat b { display: block; font-size: 26px; font-weight: 700; color: #fff; }
+  .hero-stat span { font-size: 13px; color: rgba(234, 243, 240, 0.7); }
+
+  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
+
+  /* ---------- Pains ---------- */
+  .pains { background: var(--bg); }
+  .pains .section-sub { margin-bottom: 48px; }
+  .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+  .pain-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 36px 32px;
+    transition: transform .25s ease, box-shadow .25s ease;
+    position: relative;
+  }
+  .pain-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+  .pain-num { font-family: 'Playfair Display', serif; font-size: 15px; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 18px; display: block; }
+  .pain-card h3 { font-size: 21px; margin-bottom: 14px; }
+  .pain-card p { color: var(--ink-soft); font-size: 15.5px; }
+
+  /* ---------- Solutions ---------- */
+  .solutions { background: var(--bg-deep); color: #eaf3f0; }
+  .solutions .section-sub, .solutions .eyebrow { color: rgba(234, 243, 240, 0.8); }
+  .solutions .eyebrow::before { background: #7fc4ab; }
+  .solutions .section-sub { color: rgba(234, 243, 240, 0.75); margin-bottom: 48px; }
+  .sol-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+  .sol-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius); padding: 36px 32px; transition: background .25s ease; }
+  .sol-card:hover { background: rgba(255,255,255,0.09); }
+  .sol-icon {
+    width: 52px; height: 52px; border-radius: 14px;
+    background: rgba(127, 196, 171, 0.18); color: #7fc4ab;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; margin-bottom: 22px;
+  }
+  .sol-card h3 { font-size: 21px; margin-bottom: 12px; color: #fff; }
+  .sol-card p { font-size: 15.5px; color: rgba(234, 243, 240, 0.75); }
+  .sol-tag { display: inline-block; font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; color: #7fc4ab; background: rgba(127, 196, 171, 0.12); padding: 5px 12px; border-radius: 999px; margin-bottom: 18px; }
+
+  /* ---------- Credentials ---------- */
+  .creds { background: var(--bg); }
+  .creds-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: center; margin-top: 48px; }
+  .creds-list { display: flex; flex-direction: column; gap: 22px; }
+  .cred-item { display: flex; gap: 18px; align-items: flex-start; }
+  .cred-check { flex: 0 0 30px; height: 30px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; margin-top: 2px; }
+  .cred-item b { display: block; font-size: 16.5px; margin-bottom: 4px; }
+  .cred-item p { color: var(--ink-soft); font-size: 15px; }
+
+  .stat-panel { background: var(--paper); border: 1px solid var(--line); border-radius: 24px; padding: 36px; box-shadow: var(--shadow); }
+  .stat-panel h3 { font-size: 22px; margin-bottom: 24px; }
+  .stats-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .big-stat b { display: block; font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 700; color: var(--accent); line-height: 1; }
+  .big-stat span { font-size: 13.5px; color: var(--ink-soft); }
+  .stat-note { margin-top: 26px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 14px; color: var(--ink-soft); }
+  @media (max-width: 900px) { .creds-grid { grid-template-columns: 1fr; } }
+
+  /* ---------- Cases ---------- */
+  .cases { background: var(--bg); }
+  .cases .section-sub { margin-bottom: 48px; }
+  .case-card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 34px 32px; margin-bottom: 20px; box-shadow: 0 4px 18px rgba(18,51,47,0.04); }
+  .case-flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px 32px; }
+  .case-step .lbl { display: block; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: var(--accent); margin-bottom: 6px; }
+  .case-step p { font-size: 15px; color: var(--ink); }
+  .case-arrow { display: none; }
+
+  /* ---------- Offer ---------- */
+  .offer { background: var(--bg); }
+  .offer-panel {
+    background: linear-gradient(135deg, var(--bg-deep) 0%, #0e2a26 100%);
+    border-radius: 28px;
+    color: #eaf3f0;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 0;
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(18, 51, 47, 0.35);
+  }
+  .offer-main { padding: 56px 48px; }
+  .offer-side { background: rgba(255,255,255,0.06); padding: 56px 48px; border-left: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; }
+  .offer-panel h2 { font-size: clamp(26px, 3.4vw, 36px); margin-bottom: 10px; color: #fff; }
+  .offer-sub { font-size: 15px; color: rgba(234,243,240,0.7); margin-bottom: 30px; }
+  .offer-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
+  .offer-meta span { font-size: 13.5px; background: rgba(127,196,171,0.14); color: #7fc4ab; padding: 8px 14px; border-radius: 999px; font-weight: 500; }
+  .offer-flow { list-style: none; display: flex; flex-direction: column; gap: 18px; }
+  .offer-flow li { display: flex; gap: 14px; font-size: 15.5px; color: rgba(234,243,240,0.9); align-items: flex-start; }
+  .offer-flow .num { flex: 0 0 30px; height: 30px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; }
+  .offer-side h3 { font-size: 19px; color: #fff; margin-bottom: 14px; }
+  .offer-side p { font-size: 15px; color: rgba(234,243,240,0.8); margin-bottom: 10px; }
+  .offer-price { font-size: 14px; color: rgba(234,243,240,0.65); }
+  .offer-side .btn { margin-top: 26px; width: 100%; }
+  @media (max-width: 900px) {
+    .offer-panel { grid-template-columns: 1fr; }
+    .offer-side { border-left: none; border-top: 1px solid rgba(255,255,255,0.1); }
+  }
+
+  /* ---------- CTA ---------- */
+  .cta { background: var(--bg); padding-top: 8px; padding-bottom: 100px; }
+  .cta-box {
+    background: var(--paper); border: 1px solid var(--line); border-radius: 28px;
+    padding: 60px 56px; text-align: center; box-shadow: var(--shadow);
+    position: relative; overflow: hidden;
+  }
+  .cta-box::before {
+    content: ""; position: absolute; inset: auto -40px -80px auto; width: 380px; height: 380px;
+    border-radius: 50%; background: radial-gradient(circle, rgba(31,111,92,0.10), transparent 65%);
+  }
+  .cta-box h2 { font-size: clamp(26px, 3.6vw, 38px); line-height: 1.25; margin-bottom: 18px; }
+  .cta-box h2 span { color: var(--accent); }
+  .cta-note { color: var(--ink-soft); max-width: 640px; margin: 0 auto 34px; font-size: 16.5px; }
+  .cta-actions { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+  .cta-limit {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--accent-soft); color: var(--accent-deep);
+    font-size: 14.5px; font-weight: 600; padding: 12px 22px; border-radius: 999px; margin-bottom: 28px;
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: pulse 1.6s infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1);} 50% { opacity: 0.4; transform: scale(0.7);} }
+
+  /* ---------- Footer ---------- */
+  footer { background: var(--bg-deep); color: rgba(234,243,240,0.7); padding: 40px 0; font-size: 14px; }
+  .foot { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  footer b { color: #fff; font-weight: 600; }
+  footer a { color: #7fc4ab; text-decoration: none; }
+  .disclaimer { margin-top: 26px; font-size: 12.5px; color: rgba(234,243,240,0.45); line-height: 1.6; max-width: 900px; }
+
+  /* ---------- Modal ---------- */
+  .modal {
+    position: fixed; inset: 0; z-index: 100;
+    display: none; align-items: center; justify-content: center;
+    background: rgba(18, 51, 47, 0.55); backdrop-filter: blur(6px);
+    padding: 24px;
+  }
+  .modal.open { display: flex; }
+  .modal-card { background: var(--paper); border-radius: 24px; max-width: 480px; width: 100%; padding: 40px; position: relative; animation: rise .3s ease; }
+  @keyframes rise { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  .modal-card h3 { font-size: 24px; margin-bottom: 10px; }
+  .modal-card p { color: var(--ink-soft); font-size: 15px; margin-bottom: 24px; }
+  .modal-close { position: absolute; top: 18px; right: 18px; background: none; border: none; font-size: 22px; color: var(--ink-soft); cursor: pointer; line-height: 1; }
+  .field { margin-bottom: 16px; }
+  .field label { display: block; font-size: 13.5px; font-weight: 600; margin-bottom: 6px; }
+  .field input, .field textarea {
+    width: 100%; padding: 13px 16px; border: 1.5px solid var(--line); border-radius: 12px;
+    font-family: inherit; font-size: 15px; color: var(--ink); background: var(--bg); transition: border-color .2s;
+  }
+  .field input:focus, .field textarea:focus { outline: none; border-color: var(--accent); }
+  .form-success { color: var(--accent); font-weight: 600; margin-top: 14px; font-size: 14.5px; display: none; }
+  .privacy { font-size: 12px; color: var(--ink-soft); margin-top: 14px; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="container nav">
+    <a href="#" class="logo">Пⓟихолог <span>· «Ясность»</span></a>
+    <ul class="nav-links">
+      <li><a href="#pains">С чем работаю</a></li>
+      <li><a href="#cases">Кейсы</a></li>
+      <li><a href="#offer">Диагностика</a></li>
+      <li><a href="#cta">Консультация</a></li>
+    </ul>
+    <a href="#cta" class="btn btn-primary nav-cta">Обсудить мой запрос</a>
+  </div>
+</header>
+
+<!-- Block 1: First screen -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">Структурная психотерапия для профессионалов</span>
+      <h1>Превратите внутреннее напряжение <em>в ресурс</em></h1>
+      <p class="hero-lead">Психологическая поддержка для занятых людей: от хаоса в голове к ясным решениям.</p>
+      <p class="hero-desc">Структурный подход к вашей психике без воды и эзотерики. Находим корень проблемы и даем рабочие инструменты, чтобы вы вернули себе энергию, фокус и контроль над жизнью за 5–10 сессий.</p>
+      <div class="hero-actions">
+        <a href="#offer" class="btn btn-primary">Обсудить мой запрос</a>
+        <a href="#cases" class="btn btn-ghost">Посмотреть кейсы</a>
+      </div>
+      <p class="hero-note">В этом месяце беру <strong>4 новых клиентов</strong> — качество работы важнее количества.</p>
+    </div>
+    <div class="hero-card">
+      <p class="quote">«Клиент приходит не за диагнозом, а за <strong>разрешением жить по-другому</strong>. Моя задача — найти корень и дать инструменты, которые работают в реальной жизни».</p>
+      <p class="meta">— частный практикующий психолог, КПТ-терапевт<br>9 лет практики</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><b>1200+</b><span>часов консультаций</span></div>
+        <div class="hero-stat"><b>5–10</b><span>сессий до результата</span></div>
+        <div class="hero-stat"><b>300+</b><span>часов супервизий</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Block 2: Pains -->
+<section class="pains" id="pains">
+  <div class="container">
+    <span class="eyebrow">Знакомо ли вам это?</span>
+    <h2 class="section-title">Вы можете узнавать себя прямо сейчас</h2>
+    <p class="section-sub">Три состояния, с которыми чаще всего приходят занятые люди. Если узнали хотя бы одно — это хорошая отправная точка.</p>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <span class="pain-num">01 / ПАРАДОКС УСТАЛОСТИ</span>
+        <h3>Добился всего — но выжат</h3>
+        <p>«Я вроде бы всего добился, но просыпаюсь уже уставшим. Нет сил ни на сложные задачи, ни на семью. Выходные не спасают, а чувство вины за свою "слабость" только растет».</p>
+      </div>
+      <div class="pain-card">
+        <span class="pain-num">02 / МЕНТАЛЬНАЯ ЖВАЧКА</span>
+        <h3>Мысли не дают покоя</h3>
+        <p>«В голове крутится тысяча мыслей. Я прокручиваю одни и те же сценарии, тревожусь из-за будущего и не могу принять даже простое решение. Ощущение, что я работаю на холостых оборотах».</p>
+      </div>
+      <div class="pain-card">
+        <span class="pain-num">03 / СТЕКЛЯННЫЙ ПОТОЛОК</span>
+        <h3>Сам себя саботирую</h3>
+        <p>«Я упираюсь в предел: то ли в доходах, то ли в карьере. Как только я приближаюсь к новой цели, внутри включается саботаж: я заболеваю, теряю фокус или начинаю конфликтовать».</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Block 3: Solutions -->
+<section class="solutions">
+  <div class="container">
+    <span class="eyebrow">Как мы будем работать</span>
+    <h2 class="section-title">Мы не будем просто «обсуждать ваше детство»</h2>
+    <p class="section-sub">Работаем по фактам и инструментам. Каждую сессию вы забираете что-то работающее — не теории, а действия.</p>
+    <div class="sol-grid">
+      <div class="sol-card">
+        <span class="sol-tag">Если вы выгорели</span>
+        <div class="sol-icon">⚡</div>
+        <h3>Вернем энергию, а не «функционирование»</h3>
+        <p>Отделим физиологическую усталость от психологического истощения. Выстроим личные границы, отключим «внутреннего критика» и вернем состояние, в котором хочется жить, а не просто функционировать.</p>
+      </div>
+      <div class="sol-card">
+        <span class="sol-tag">Если одолевает тревога</span>
+        <div class="sol-icon">🌿</div>
+        <h3>Остановим поток тревожных мыслей</h3>
+        <p>Используем инструменты когнитивно-поведенческой терапии, чтобы прекратить бесконечную ментальную жвачку. Вы получите четкий алгоритм: как брать паузу, заземляться и возвращать контроль над ситуацией.</p>
+      </div>
+      <div class="sol-card">
+        <span class="sol-tag">Если саботируете успех</span>
+        <div class="sol-icon">🧭</div>
+        <h3>Перепишем внутренний сценарий</h3>
+        <p>Найдем скрытые вторичные выгоды страхов и разберем их. Перепишем сценарий, который запрещает вам быть успешным и спокойным, чтобы вы наконец разрешили себе больше.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Credentials (between Offer and CTA per recommendation) -->
+<section class="creds" id="creds">
+  <div class="container">
+    <span class="eyebrow">Регалии и метод</span>
+    <h2 class="section-title">Работаю доказательными методами</h2>
+    <div class="creds-grid">
+      <div class="creds-list">
+        <div class="cred-item"><span class="cred-check">✓</span><div><b>Дипломированный специалист</b><p>Высшее психологическое образование + профессиональная переподготовка по когнитивно-поведенческой терапии (КПТ), признанной наиболее доказанным подходом.</p></div></div>
+        <div class="cred-item"><span class="cred-check">✓</span><div><b>Непрерывное обучение</b><p>Ежегодные повышения квалификации: КПТ, схема-терапия, работа с тревожными расстройствами и эмоциональным выгоранием. Метод — только доказательный, без эзотерики.</p></div></div>
+        <div class="cred-item"><span class="cred-check">✓</span><div><b>Собственная терапия и супервизии</b><p>Регулярная личная терапия и 300+ часов супервизий. Это моя профессиональная гигиена: я не проецирую свои проблемы на вашу работу.</p></div></div>
+        <div class="cred-item"><span class="cred-check">✓</span><div><b>Член профессионального сообщества</b><p>Регулярно прохожу интервизионные группы — разбор сложных случаев с коллегами для качества результата.</p></div></div>
+      </div>
+      <div class="stat-panel">
+        <h3>Цифры, за которые я отвечаю</h3>
+        <div class="stats-row">
+          <div class="big-stat"><b>1200+</b><span>часов клиентских консультаций</span></div>
+          <div class="big-stat"><b>300+</b><span>часов супервизий</span></div>
+          <div class="big-stat"><b>9 лет</b><span>в частной практике</span></div>
+          <div class="big-stat"><b>250+</b><span>часов личной терапии</span></div>
+        </div>
+        <p class="stat-note">Я сам прохожу то, что предлагаю клиентам. Иначе эффективного результата не бывает.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Cases -->
+<section class="cases" id="cases">
+  <div class="container">
+    <span class="eyebrow">Короткие кейсы</span>
+    <h2 class="section-title">Что было → что сделали → что получилось</h2>
+    <p class="section-sub">Имена изменены по этическим причинам. Сюжеты типичны для запросов занятых людей.</p>
+
+    <div class="case-card">
+      <div class="case-flow">
+        <div class="case-step"><span class="lbl">Запрос</span><p><b>Анна, 34, руководитель</b> — выгорание. «Просыпаюсь уставшей, работе радуюсь меньше, мужу раздражаюсь, виню себя».</p></div>
+        <div class="case-step"><span class="lbl">Что сделали</span><p>Отделили физическую усталость от истощения, выстроили границы на работе, проработали «внутренний критик» через техники КПТ. 8 сессий.</p></div>
+        <div class="case-step"><span class="lbl">Результат</span><p>Энергия по утрам вернулась, снизилось чувство вины, научилась брать паузу без самобичевания. Через 2 месяца — повышение.</p></div>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-flow">
+        <div class="case-step"><span class="lbl">Запрос</span><p><b>Дмитрий, 41, предприниматель</b> — тревога. «Прокручиваю сценарии, сплю плохо, решения даются через силу».</p></div>
+        <div class="case-step"><span class="lbl">Что сделали</span><p>КПТ-протокол для тревожных мыслей: пауза, заземление, проверка реальности страхов. Алгоритм ежедневной практики. 6 сессий.</p></div>
+        <div class="case-step"><span class="lbl">Результат</span><p>Перестал «просчитывать» будущее по ночам, сон восстановился, решения принимает за минуты. Отношения с командой стали спокойнее.</p></div>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-flow">
+        <div class="case-step"><span class="lbl">Запрос</span><p><b>Елена, 38, юрист</b> — саботаж. «Подхожу к цели — и все рушится: болею, срываю дедлайны, ссорюсь».</p></div>
+        <div class="case-step"><span class="lbl">Что сделали</span><p>Нашли вторичные выгоды страха успеха, переписали внутренний сценарий, закрепили новую модель поведения. 10 сессий.</p></div>
+        <div class="case-step"><span class="lbl">Результат</span><p>Спокойно пережила крупную сделку без срывов, вернула уверенность. Планирует расширение практики и клиентов в 1,5 раза.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Block 4: Offer -->
+<section class="offer" id="offer">
+  <div class="container">
+    <div class="offer-panel">
+      <div class="offer-main">
+        <span class="eyebrow" style="color:#7fc4ab">Старт работы</span>
+        <h2>Первичная стратегическая сессия</h2>
+        <p class="offer-sub">Это не просто «знакомство». Это 60 минут плотной работы, после которых у вас появится ясность.</p>
+        <div class="offer-meta">
+          <span>Онлайн — Zoom / Skype</span>
+          <span>Или очно</span>
+          <span>60 минут</span>
+        </div>
+        <ul class="offer-flow">
+          <li><span class="num">1</span><div>Разберем ваш запрос и <b>определим корень проблемы</b>.</div></li>
+          <li><span class="num">2</span><div>Я честно оценю ситуацию и скажу, <b>в чем причина</b> вашего состояния.</div></li>
+          <li><span class="num">3</span><div>Составим <b>пошаговый план терапии</b>: какие инструменты применим и какой результат вы получите за 5–10 сессий.</div></li>
+        </ul>
+      </div>
+      <div class="offer-side">
+        <h3>Что вы получаете на сессии</h3>
+        <p>— Честную обратную связь: можно ли вам помочь и каким методом.</p>
+        <p>— Конкретный план, а не общие слова.</p>
+        <p>— Решение: стоит ли вступать в терапию, и если да — какую программу выбрать.</p>
+        <p class="offer-price">Стоимость и подходящее время уточним в переписке — запишитесь, я напишу.</p>
+        <a href="#cta" class="btn btn-primary">Обсудить мой запрос</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Block 5: CTA -->
+<section class="cta" id="cta">
+  <div class="container">
+    <div class="cta-box">
+      <span class="cta-limit"><span class="dot"></span>В этом месяце беру только 4 новых клиентов</span>
+      <h2>Расписание на <span>октябрь</span> почти сформировано</h2>
+      <p class="cta-note">Забронируйте удобное время для первичной консультации, пока в сетке есть свободные окна. Качество работы и полная вовлеченность в процесс удерживаются только ограничением числа клиентов.</p>
+      <div class="cta-actions">
+        <button class="btn btn-primary" onclick="openModal()">Обсудить мой запрос</button>
+        <a href="#offer" class="btn btn-ghost">Что будет на сессии</a>
+      </div>
+      <p class="cta-note" style="margin-top:26px; margin-bottom:0;">Не знаете, с чего начать? Оставьте контакт — я напишу, чтобы мягко ввести вас в курс дела и ответить на вопросы.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="foot">
+      <div><b>Психолог · «Ясность»</b> — структурная психотерапия для занятых людей</div>
+      <div><a href="mailto:hello@example.com">hello@example.com</a> · по предварительной записи</div>
+    </div>
+    <p class="disclaimer">Информация на этой странице не заменяет медицинскую помощь и не является диагнозом. Психологическое консультирование не лечит психические расстройства. В случае острых состояний обратитесь к врачу-психиатру. Индивидуальные результаты могут отличаться и зависят от запроса, включенности и регулярности работы.</p>
+  </div>
+</footer>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeModal()" aria-label="Закрыть">&times;</button>
+    <h3>Обсудить мой запрос</h3>
+    <p>Оставьте контакт — я напишу в ближайшее время, мягко введу в курс дела и отвечу на вопросы.</p>
+    <form id="leadForm">
+      <div class="field">
+        <label for="name">Как к вам обращаться</label>
+        <input type="text" id="name" name="name" placeholder="Имя" required>
+      </div>
+      <div class="field">
+        <label for="contact">Телефон или Telegram / WhatsApp</label>
+        <input type="text" id="contact" name="contact" placeholder="+7 ___, @username" required>
+      </div>
+      <div class="field">
+        <label for="msg">Коротко запрос (необязательно)</label>
+        <textarea id="msg" name="msg" rows="3" placeholder="Что происходит: усталость, тревога, саботаж…"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%">Отправить запрос</button>
+      <p class="privacy">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных. Конфиденциальность гарантируется.</p>
+      <p class="form-success" id="formSuccess">✓ Спасибо! Я свяжусь с вами в ближайшее время.</p>
+    </form>
+  </div>
+</div>
+
+<script>
+  function openModal() { document.getElementById('modal').classList.add('open'); }
+  function closeModal() { document.getElementById('modal').classList.remove('open'); }
+  document.getElementById('modal').addEventListener('click', function (e) {
+    if (e.target === this) closeModal();
+  });
+  document.getElementById('leadForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    document.getElementById('formSuccess').style.display = 'block';
+    this.querySelector('#name').value = '';
+    this.querySelector('#contact').value = '';
+    this.querySelector('#msg').value = '';
+  });
+</script>
+
+</body>
+</html>
